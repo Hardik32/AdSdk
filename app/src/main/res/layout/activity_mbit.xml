@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MbitActivity">
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoadBannerAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Banner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoadBannerAdCollapsing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Banner Collapsing"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoadBannerAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoadNativeAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Native Ad"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoadBannerAdCollapsing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPreLoadLoadNativeAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pre Load Native Ad Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoadNativeAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPreLoadLoadInersial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pre Load Inter Ad Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnPreLoadLoadNativeAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoadLoadInersial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Inter Ad Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnPreLoadLoadInersial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPreLoadRewadAdShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Reward Ad Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoadLoadInersial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnthreeTapToInter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Three tap to Load int Ad Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnPreLoadRewadAdShow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNativeLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Native Large Show"
+        app:layout_constraintTop_toBottomOf="@+id/btnthreeTapToInter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnListAdapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ListAdapter"
+        app:layout_constraintTop_toBottomOf="@+id/btnNativeLarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
