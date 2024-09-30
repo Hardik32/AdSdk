@@ -91,3 +91,48 @@ dependencies {
     implementation "androidx.activity:activity:1.4.0"
 }
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            LibraryRelease(MavenPublication) {
+                from components.release
+                artifact(sourceJar)
+                groupId = 'com.github.Hardik32'
+                artifactId = 'adsdk'
+                version = '1.0.0'
+            }
+
+        }
+        publications.all {
+            pom.withXml {
+                asNode().dependencies.'*'
+                        .findAll() {
+                            it.scope.text() == 'runtime' &&
+                                    project.configurations.implementation.allDependencies.find {
+                                        dep -> dep.name == it.artifactId.text()
+                                    }
+                        }.each { it.scope*.value = 'compile' }
+            }
+        }
+        ///  commit time delete this fuction
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/Hardik32/AdSdk")
+
+                credentials {
+                    username = "Hardik32"
+                    password = "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"
+                }
+                mavenContent {
+                    snapshotsOnly() // Ensure it only allows snapshots
+                }
+            }
+        }
+    }
+}

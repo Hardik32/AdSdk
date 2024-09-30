@@ -24,6 +24,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
@@ -120,6 +124,24 @@ public class Admob {
 
     private Admob() {
 
+    }
+
+
+    public void removeNavigation(Activity activity,boolean isLight) {
+        if (Build.VERSION.SDK_INT >= 30) {
+            WindowInsetsControllerCompat windowInsetsController = ViewCompat.getWindowInsetsController(activity.getWindow().getDecorView());
+            if (windowInsetsController != null) {
+                windowInsetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+                windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars());
+                if (activity.getWindow().getDecorView().getRootWindowInsets() != null) {
+                    activity.getWindow().getDecorView().getRootWindowInsets().getInsetsIgnoringVisibility(WindowInsetsCompat.Type.navigationBars());
+                }
+                activity.getWindow().setDecorFitsSystemWindows(true);
+            }
+        } else {
+            activity.getWindow().getDecorView().setSystemUiVisibility(InputDeviceCompat.SOURCE_TOUCHSCREEN);
+        }
+        new WindowInsetsControllerCompat(activity.getWindow(), activity.getWindow().getDecorView()).setAppearanceLightStatusBars(isLight);
     }
 
     public void setNumToShowAds(int numShowAds) {
